@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping>
+	<class name="Metier.User" table="users">
+		<id name="email" column="email">
+			<generator class="assigned"/>
+		</id>
+		<property name="nomPr" column="nomPr"/>
+		<property name="password" column="password"/>
+		<property name="statut" column="statut"/>
+		<set name="msgs">
+			<key column="email"/>
+			<one-to-many class="Metier.Message"/>
+		</set>
+	</class>
+	
+</hibernate-mapping>
